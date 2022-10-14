@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="631.0" prefWidth="1626.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <SplitPane dividerPositions="0.38762511373976344" layoutX="3.0" layoutY="-3.0" prefHeight="637.0" prefWidth="1626.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="216.0" prefWidth="449.0">
+               <children>
+                  <HBox prefHeight="635.0" prefWidth="627.0">
+                     <children>
+                        <VBox fx:id="buttonVbox" alignment="CENTER" prefHeight="408.0" prefWidth="385.0" spacing="20.0">
+                           <children>
+                              <Button id="importCSV" fx:id="btnStudentsAssignProp" mnemonicParsing="false" onAction="#studentsAssignProp" prefHeight="60.0" prefWidth="136.0" text="Get students with assigned proposals" wrapText="true">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0">
+                                       <image>
+                                          <Image url="@../images/automaticAtr.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button id="importCSV" fx:id="btnStdCandWithoutProp" mnemonicParsing="false" onAction="#stdCandWithoutProp" prefHeight="60.0" prefWidth="136.0" text="Get students with candidacy and without proposals" wrapText="true">
+                                 <graphic>
+                                    <ImageView>
+                                       <image>
+                                          <Image url="@../images/rejected.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Button>
+                              <Button id="lookupConfig" fx:id="exportCSVConfig" mnemonicParsing="false" onAction="#export" prefHeight="60.0" prefWidth="136.0" text="Export CSV">
+                                 <graphic>
+                                    <ImageView>
+                                       <image>
+                                          <Image url="@../images/export.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </Button>
+                              <Button id="lookupConfig" fx:id="btnAvProp" mnemonicParsing="false" onAction="#avProp" prefHeight="60.0" prefWidth="136.0" text="Get available proposals" wrapText="true">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <graphic>
+                                    <ImageView>
+                                       <image>
+                                          <Image url="@../images/proposal1.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button id="nextConfig" fx:id="btnAssignProp" mnemonicParsing="false" onAction="#assignProp" prefHeight="60.0" prefWidth="136.0" text="Get assigned proposals" wrapText="true">
+                                 <graphic>
+                                    <ImageView>
+                                       <image>
+                                          <Image url="@../images/proposal2.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                        <VBox fx:id="buttonVbox1" alignment="CENTER" prefHeight="643.0" prefWidth="368.0" spacing="20.0">
+                           <children>
+                              <Button id="nextConfig" fx:id="btnNumSupeForSuper" mnemonicParsing="false" onAction="#numSupeForSuper" prefHeight="60.0" prefWidth="136.0" text="Get number of supervisions for each superviser" wrapText="true">
+                                 <graphic>
+                                    <ImageView>
+                                       <image>
+                                          <Image url="@../images/supervisionsbysuperviser.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button id="importCSV" fx:id="btnMaxNumSup" mnemonicParsing="false" onAction="#maxNumSup" prefHeight="60.0" prefWidth="136.0" text="Get maximum number of supervisions" wrapText="true">
+                                 <graphic>
+                                    <ImageView>
+                                       <image>
+                                          <Image url="@../images/max.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button id="exportcsv" fx:id="btnAvrNumSup" mnemonicParsing="false" onAction="#avrNumSup" prefHeight="60.0" prefWidth="136.0" text="Get average number of supervisions" wrapText="true">
+                                 <graphic>
+                                    <ImageView>
+                                       <image>
+                                          <Image url="@../images/average.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button id="lookupConfig" fx:id="btnMinNumSup" mnemonicParsing="false" onAction="#minNumSup" prefHeight="60.0" prefWidth="136.0" text="Get minimum number of supervisions" wrapText="true">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <graphic>
+                                    <ImageView>
+                                       <image>
+                                          <Image url="@../images/graph.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button id="lookupConfig" fx:id="btnNumSuperSpecSup" mnemonicParsing="false" onAction="#numSuperSpecSup" prefHeight="60.0" prefWidth="136.0" text="Get number of supervisions of a specific supervisor" wrapText="true">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <graphic>
+                                    <ImageView>
+                                       <image>
+                                          <Image url="@../images/search01.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="563.0" prefWidth="604.0">
+               <children>
+                  <Pane layoutX="-4.0" layoutY="-2.0" prefHeight="637.0" prefWidth="991.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" layoutY="32.0" prefHeight="606.0" prefWidth="997.0">
+                           <children>
+                              <VBox prefHeight="387.0" prefWidth="202.0" spacing="10.0">
+                                 <children>
+                                    <ListView fx:id="lookupView" prefHeight="587.0" prefWidth="202.0" />
+                                 </children>
+                              </VBox>
+                              <GridPane prefHeight="591.0" prefWidth="779.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <BarChart fx:id="barGraph" barGap="1.0" categoryGap="1.0" legendSide="RIGHT" prefHeight="253.0" prefWidth="293.0" GridPane.rowIndex="1">
+                                      <xAxis>
+                                        <CategoryAxis side="BOTTOM" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis side="LEFT" />
+                                      </yAxis>
+                                    </BarChart>
+                                    <PieChart fx:id="pieGraph" prefHeight="180.0" prefWidth="275.0" />
+                                    <BarChart fx:id="companyBarGraph" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                      <xAxis>
+                                        <CategoryAxis side="BOTTOM" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis side="LEFT" />
+                                      </yAxis>
+                                    </BarChart>
+                                    <PieChart fx:id="percentagePie" GridPane.columnIndex="1" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                           <padding>
+                              <Insets left="15.0" top="15.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </Pane>
+                  <MenuBar layoutX="-7.0" layoutY="5.0" prefHeight="25.0" prefWidth="997.0">
+                    <menus>
+                      <Menu fx:id="fileMenu" mnemonicParsing="false" text="File">
+                           <items>
+                              <MenuItem fx:id="saveConfig" mnemonicParsing="false" onAction="#save" text="Save">
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="S" control="UP" meta="UP" shift="UP" shortcut="DOWN" />
+                                 </accelerator>
+                              </MenuItem>
+                              <MenuItem fx:id="loadConfig" mnemonicParsing="false" onAction="#load" text="Load">
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="O" control="UP" meta="UP" shift="UP" shortcut="DOWN" />
+                                 </accelerator>
+                              </MenuItem>
+                           </items>
+                      </Menu>
+                        <Menu fx:id="fileMenu1" mnemonicParsing="false" text="Edit">
+                           <items>
+                              <MenuItem fx:id="undoConfig" disable="true" mnemonicParsing="false" onAction="#undo" text="Undo">
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="Z" control="UP" meta="UP" shift="UP" shortcut="DOWN" />
+                                 </accelerator>
+                                 <graphic>
+                                    <ImageView>
+                                       <image>
+                                          <Image url="@../images/undo.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </MenuItem>
+                              <MenuItem fx:id="redoConfig" disable="true" mnemonicParsing="false" onAction="#redo" text="Redo">
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="Z" control="UP" meta="UP" shift="DOWN" shortcut="DOWN" />
+                                 </accelerator>
+                                 <graphic>
+                                    <ImageView>
+                                       <image>
+                                          <Image url="@../images/redo.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </MenuItem>
+                           </items>
+                        </Menu>
+                    </menus>
+                  </MenuBar>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</Pane>
